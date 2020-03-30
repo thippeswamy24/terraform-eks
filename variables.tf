@@ -1,10 +1,12 @@
 variable "cluster-name" {
   description = "Enter eks cluster name - example like eks-demo, eks-dev etc"
   type    = "string"
+  default = "eks-dev"
 }
 
 variable "eks-worker-ami" {
   description = "Please visit here - https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html and select your pre-baked AMI depending on the cluster version and the region you are planning to launch cluster into"
+  default = "ami-0dc7713312a7ec987"
 }
 
 # In eks worker node instance type directly affects the number of PODs can run on a Node. Choose wisely.
@@ -12,11 +14,12 @@ variable "eks-worker-ami" {
 
 variable "worker-node-instance_type" {
   description = "enter worker node instance type"
+  default = "t3.medium"
 }
 
 variable "ssh_key_pair" {
    description = "Enter SSH keypair name that already exist in the account"
-
+   default = "k8s"
 }
 
 variable "public_subnets" {
@@ -38,10 +41,12 @@ variable "aws_profile" {
 
 variable "eks_version" {
    description = "kubernetes cluster version provided by AWS EKS - It would be like 1.12 or 1.13"
+   default = "1.15.10"
 
 }
 
 variable "region" {
    description = "Enter region you want to create EKS cluster in"
+   default = "us-east-1"
 
 }
